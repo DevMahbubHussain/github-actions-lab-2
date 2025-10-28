@@ -1,4 +1,4 @@
-name: Docker Nginx CI/CD
+name: Docker Nginx CI/CD and EC2
 
 on:
   push:
