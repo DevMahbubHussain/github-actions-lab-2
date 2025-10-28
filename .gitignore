@@ -1,0 +1,41 @@
+# ------------------------------------------------------------------
+# TERRAFORM: State and Plan Files
+# ------------------------------------------------------------------
+*.tfstate
+*.tfstate.*
+terraform.tfstate
+terraform.tfstate.backup
+terraform.tfvars
+terraform.tfvars.json
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Local Terraform directory
+.terraform/
+.terraform.lock.hcl
+
+# Plan output files
+*.tfplan
+
+# ------------------------------------------------------------------
+# SSH / Key Files
+# ------------------------------------------------------------------
+*.pem
+*.key
+*.pub
+
+# ------------------------------------------------------------------
+# Local Output or Secrets Files
+# ------------------------------------------------------------------
+*.log
+*.bak
+*.backup
+private.pem
+id_rsa
+id_rsa.pub
+
+# If you used Terraform local_file to write private keys
+ec2-key.pem
