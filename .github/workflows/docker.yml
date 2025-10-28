@@ -64,6 +64,17 @@ jobs:
           curl -f http://localhost:8080 | grep "Hello from GitHub Actions"
           docker stop test-nginx
 
+      - name: Check Docker on EC2
+        uses: appleboy/ssh-action@v1.1.0
+        with:
+            host: ${{ secrets.EC2_HOST }}
+            username: ${{ secrets.EC2_USER }}
+            key: ${{ secrets.EC2_SSH_KEY }}
+            script: |
+                docker --version
+                docker info 
+     
+
   # 🖥️ Deploy to AWS EC2
   deploy:
     needs: docker

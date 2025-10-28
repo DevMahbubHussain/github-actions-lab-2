@@ -134,6 +134,19 @@ resource "aws_instance" "nginx_instance" {
   associate_public_ip_address = true
   key_name                    = aws_key_pair.deployer_key.key_name
   vpc_security_group_ids      = [aws_security_group.nginx_sg.id]
+  user_data                   = <<-EOF
+              #!/bin/bash
+              # Update packages
+              yum update -y
+              
+              # Install Docker
+              amazon-linux-extras install docker -y
+              service docker start
+              usermod -a -G docker ec2-user
+              
+              # Enable Docker to start on boot
+              systemctl enable docker
+              EOF
 
   tags = {
     Name = "nginx-github-actions"
